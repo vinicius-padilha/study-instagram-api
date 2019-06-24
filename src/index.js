@@ -8,22 +8,22 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0-ms0ca.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://insta:instateste@cluster0-kfypm.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
 });
 
-// app.use((req, res, next) => {
-//     req.io = io;
+app.use((req, res, next) => {
+    req.io = io;
 
-//     next();
-// });
+    next();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
 
 app.use(require('./routes'));
 
-app.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 3000);

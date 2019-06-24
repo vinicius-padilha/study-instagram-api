@@ -8,7 +8,7 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0-ms0ca.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://insta:instaapi@cluster0-ms0ca.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
 });
 

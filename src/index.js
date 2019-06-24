@@ -24,4 +24,4 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resiz
 
 app.use(require('./routes'));
 
-app.listen(process.env.PORT || 3000, () => console.log('API on!'));
+server.listen(process.env.PORT || 3000, () => console.log('API on!'));

@@ -7,6 +7,7 @@ const LikeController = require('./controllers/LikeController');
 const routes = new express.Router();
 const upload = multer(uploadConfig);
 
+routes.delete('/posts/:id', PostController.delete);
 routes.get('/posts', PostController.index);
 routes.post('/posts', upload.single('image'), PostController.store);
 

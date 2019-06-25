@@ -37,5 +37,11 @@ module.exports = {
         req.io.emit('post', post);
 
         return res.json(post);
+    },
+
+    async delete(req, res) {
+        Post.remove({ _id:req.params.id}, function() {
+            res.status(200).send({ message: 'Post excluído com sucesso!' });
+        });
     }
 };
